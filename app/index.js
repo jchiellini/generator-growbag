@@ -8,6 +8,7 @@ var chalk = require('chalk');
 
 var GrowbagGenerator = yeoman.generators.Base.extend({
   init: function () {
+    this.options.env.options = {force:true};
   },
   askFor: function (appName,env_id,gromitName,dataset) {
     var done = this.async();
@@ -77,10 +78,9 @@ var GrowbagGenerator = yeoman.generators.Base.extend({
     this.copy("_main.css",this.appName+'/styles/main.css')
   },
   addGromit:function(appName,env_id,gromitName,dataset){
-    console.log(this.addGromit)
     if(this.addGromit){
       var done = this.async();
-      this.invoke("growbag:gromit", {args: [gromitName,dataset,this.appName]}, function(){
+      this.invoke("growbag:gromit", {args: [gromitName,dataset,this.appName], force:true }, function(){
         done();
       });
     }

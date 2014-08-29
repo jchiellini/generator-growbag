@@ -1,6 +1,6 @@
 {
   "name": "generator-growbag",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Yeoman generator to scaffold a new canvas growbag project, gromits, or both at once!",
   "license": "MIT",
   "main": "app/index.js",
