@@ -1,0 +1,11 @@
+<script src="{gr.path.shared}/lib/hqlx.js"></script>
+<script src="{gr.path.project}/scripts/directives/chart-dir.js"></script>
+<script src="{gr.path.project}/scripts/services/chartBuilder-svc.js"></script>
+<script src="{gr.path.project}/scripts/services/dataBuilder-svc.js"></script>
+<script src="{gr.path.project}/scripts/services/chartConfig-svc.js"></script>
+<script src="{gr.path.project}/scripts/controllers/<%= gromitName %>-ctrl.js"></script>
+<script src="{gr.path.project}/scripts/grouped-categories.js"></script>
+<link rel="stylesheet" type="text/css" href="{gr.path.project}/styles/main.css">
+<div ng-controller="<%= gromitName %>Ctrl">
+  <chart id="<%= gromitName %>" options="<%= gromitName %>_options" data="<%= gromitName %>_data"></chart>
+</div>

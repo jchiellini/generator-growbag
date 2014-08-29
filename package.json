@@ -1,0 +1,43 @@
+{
+  "name": "generator-growbag",
+  "version": "1.0.7",
+  "description": "Yeoman generator to scaffold a new canvas growbag project, gromits, or both at once!",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jchiellini/generator-growbag"
+  },
+  "author": " (https://github.com/jchiellini)",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app","gromit","test"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "chalk": "~0.4.0",
+    "colors": "^0.6.2",
+    "yeoman-generator": "~0.16.0",
+    "yosay": "^0.1.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/jchiellini/generator-growbag/issues"
+  },
+  "homepage": "https://github.com/jchiellini/generator-growbag",
+  "directories": {
+    "test": "test"
+  }
+}

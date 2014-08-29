@@ -1,0 +1,12 @@
+environment-ids:
+  dev: <%= env_id %>
+  sandbox: <%= env_id %>
+  npn: <%= env_id %>
+  prod: <%= env_id %>
+
+substitutions:
+
+  gr.path.wallace:
+    dev: "http://localhost:8080/tenants/{gr.vars.id}/datasets"
+    sandbox: "{gr.path.project}/fixtures"
+    npn: "https://canvas-npn.mckinsey.com/wallace/tenants/{gr.vars.id}/datasets"
