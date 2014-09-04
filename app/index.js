@@ -13,7 +13,14 @@ var GrowbagGenerator = yeoman.generators.Base.extend({
   askFor: function (appName,env_id,gromitName,dataset) {
     var done = this.async();
 
-    var prompts = [];
+    var prompts = [
+      {
+        type: 'confirm',
+        name: 'useLess',
+        message: 'Would you like to use Less?',
+        default: true
+      }
+    ];
 
     if(appName == undefined){
       prompts.push({
@@ -50,9 +57,12 @@ var GrowbagGenerator = yeoman.generators.Base.extend({
 
     this.prompt(prompts, function (props) {
       this.appName = appName != undefined ? appName : props.appName;
+      if(this.appName != undefined){
+        this.appName = this.appName.replace(/"/g, "");
+      }
       this.env_id = env_id != undefined ? env_id : props.env_id;
       this.addGromit = gromitName != undefined ? gromitName : props.addGromit;
-
+      this.useLess = props.useLess;
       done();
     }.bind(this));
   },
@@ -73,9 +83,18 @@ var GrowbagGenerator = yeoman.generators.Base.extend({
       appName: this.appName
     };
 
+    if(this.useLess){
+      this.mkdir(this.appName+'/styles/less');
+      this.copy("_main.css",this.appName+'/styles/less/main.less');
+      this.copy("_GruntFile.js",this.appName+'/Gruntfile.js');
+      this.copy("_package.json",this.appName+'/package.json',context);
+    }
+    else{
+      this.copy("_main.css",this.appName+'/styles/main.css');
+    }
+
     this.template("_project.yml", this.appName+'/project.yml', context);
     this.template("_default.html", this.appName+'/templates/default.html', context);
-    this.copy("_main.css",this.appName+'/styles/main.css')
   },
   addGromit:function(appName,env_id,gromitName,dataset){
     if(this.addGromit){
